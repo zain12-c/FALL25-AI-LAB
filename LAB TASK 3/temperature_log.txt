@@ -1,0 +1,33 @@
+Living Room: 11
+Drawing Room: 24
+Bedroom: 22
+Guest Room: 22
+Living Room: 11
+Living Room: 11
+Drawing Room: 24
+Bedroom: 22
+Guest Room: 22
+Living Room: 11
+Drawing Room: 24
+Bedroom: 22
+Guest Room: 22
+Living Room: 11
+Drawing Room: 24
+Bedroom: 22
+Guest Room: 22
+Living Room: 11
+Living Room: 11
+Living Room: 11
+Living Room: 11
+Living Room: 11
+Living Room: 11
+Drawing Room: 24
+Bedroom: 22
+Living Room: 11
+Drawing Room: 24
+Bedroom: 22
+Guest Room: 22
+Living Room: 11
+Drawing Room: 24
+Bedroom: 22
+Guest Room: 22
