@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NutriTrack - Calorie Predictor</title>
+    <style>
+        /* Reset & base */
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color:#f0f4f8; color:#333; transition: all 0.3s; }
+
+        /* Container */
+        .container { max-width: 600px; margin: 40px auto; padding: 30px; background: #fff; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+        /* Banner / Header */
+        .banner { background: linear-gradient(90deg, #007BFF, #00CFFF); padding: 20px; border-radius: 15px 15px 0 0; text-align:center; color:#fff; margin-bottom:20px; }
+        .banner h1 { font-size: 28px; letter-spacing: 1px; }
+
+        /* Form */
+        label { display:block; margin-bottom:5px; font-weight:bold; }
+        input[type=text], select { width:100%; padding:12px; margin-bottom:20px; border-radius:8px; border:1px solid #ccc; font-size:16px; }
+        input[type=submit] { width:100%; padding:14px; border:none; background: #007BFF; color:#fff; font-size:18px; border-radius:8px; cursor:pointer; transition:0.3s; font-weight:bold; }
+        input[type=submit]:hover { background: #0056b3; }
+
+        /* Result / Error Card */
+        .result-card, .error-card { text-align:center; padding:15px; border-radius:10px; margin-top:20px; font-size:20px; font-weight:bold; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .result-card { background-color:#e0f7ff; color:#007BFF; }
+        .error-card { background-color:#ffe0e0; color:#d8000c; }
+
+        /* Dark mode */
+        body.dark-mode { background-color:#121212; color:#eee; }
+        body.dark-mode .container { background-color:#1e1e1e; box-shadow:0 10px 25px rgba(0,0,0,0.5); }
+        body.dark-mode input[type=text], body.dark-mode select { background-color:#2a2a2a; color:#eee; border:1px solid #555; }
+        body.dark-mode input[type=submit] { background-color:#0d6efd; color:#fff; }
+        body.dark-mode input[type=submit]:hover { background-color:#0a58ca; }
+        body.dark-mode .result-card { background-color:#00334d; color:#00d4ff; }
+        body.dark-mode .error-card { background-color:#330000; color:#ff5555; }
+
+        /* Toggle button */
+        .toggle-container { text-align:right; margin-bottom:15px; }
+        .toggle-btn { cursor:pointer; padding:8px 18px; border:none; border-radius:20px; background-color:#333; color:#fff; transition:0.3s; }
+        .toggle-btn:hover { background-color:#555; }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="toggle-container">
+            <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
+        </div>
+
+        <!-- Banner -->
+        <div class="banner">
+            <h1>NutriTrack 🍽️ AI Calorie Predictor</h1>
+        </div>
+
+        <!-- Form -->
+        <form method="POST">
+            <label>Meal Description:</label>
+            <input type="text" name="meal_description" placeholder="e.g. Chicken Rice" required>
+
+            <label>Cooking Method:</label>
+            <select name="cooking_method" required>
+                <option value="">Select Method</option>
+                <option value="Grilled">Grilled</option>
+                <option value="Fried">Fried</option>
+                <option value="Boiled">Boiled</option>
+                <option value="Baked">Baked</option>
+                <option value="Raw">Raw</option>
+                <option value="Steamed">Steamed</option>
+            </select>
+
+            <label>Quantity:</label>
+            <select name="quantity" required>
+                <option value="">Select Quantity</option>
+                <option value="50">50 gm</option>
+                <option value="100">100 gm</option>
+                <option value="150">150 gm</option>
+                <option value="200">200 gm</option>
+                <option value="250">250 gm</option>
+            </select>
+
+            <input type="submit" value="Predict Calories">
+        </form>
+
+        <!-- Prediction / Error -->
+        {% if calories %}
+        <div class="result-card">
+            Estimated Calories: {{ calories }} kcal
+        </div>
+        {% endif %}
+
+        {% if error_msg %}
+        <div class="error-card">
+            {{ error_msg }}
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function toggleDarkMode(){
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>

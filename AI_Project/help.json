@@ -1,0 +1,5 @@
+{
+  "description": "NutriTrack predicts calories for a meal based on ingredient list and cooking method.",
+  "usage_example": "100g rice; 150g chicken; 10g olive_oil",
+  "notes": "Run model_training.py to train and generate nutritrack_model_bundle.joblib before using full model."
+}
